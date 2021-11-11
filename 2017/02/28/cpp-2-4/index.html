@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>const | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="constconst作用范围默认情况下 const的对象仅在文件内有效， 要做到每个使用了const 对象的文件都能访问到它的初始值，就需要在每个文件中定义同名的const变量。这样就会产生大量的重复定义，解决办法是 在定义前面添加 extern 关键字，这样就只需要定义一次。  const 引用一种引用方式是原本的对象就是常量，引用也是常量，都不可以改变 123const int ci &#x3D; 10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="const">
+<meta property="og:url" content="http://example.com/2017/02/28/cpp-2-4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="constconst作用范围默认情况下 const的对象仅在文件内有效， 要做到每个使用了const 对象的文件都能访问到它的初始值，就需要在每个文件中定义同名的const变量。这样就会产生大量的重复定义，解决办法是 在定义前面添加 extern 关键字，这样就只需要定义一次。  const 引用一种引用方式是原本的对象就是常量，引用也是常量，都不可以改变 123const int ci &#x3D; 10">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/uploads/14882751985729.jpg">
+<meta property="og:image" content="http://example.com/uploads/14883392364050.jpg">
+<meta property="og:image" content="http://example.com/uploads/14887833321005.jpg">
+<meta property="og:image" content="http://example.com/uploads/14887833419019.jpg">
+<meta property="article:published_time" content="2017-02-28T09:38:14.000Z">
+<meta property="article:modified_time" content="2021-11-11T09:02:04.810Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="cpp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/uploads/14882751985729.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-cpp-2-4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/02/28/cpp-2-4/" class="article-date">
+  <time class="dt-published" datetime="2017-02-28T09:38:14.000Z" itemprop="datePublished">2017-02-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      const
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><h1 id="const作用范围"><a href="#const作用范围" class="headerlink" title="const作用范围"></a>const作用范围</h1><p>默认情况下 const的对象仅在文件内有效， 要做到每个使用了const 对象的文件都能访问到它的初始值，就需要在每个文件中定义同名的const变量。<br>这样就会产生大量的重复定义，解决办法是 在定义前面添加 extern 关键字，这样就只需要定义一次。</p>
+<p><img src="/uploads/14882751985729.jpg"></p>
+<h1 id="const-引用"><a href="#const-引用" class="headerlink" title="const 引用"></a>const 引用</h1><p>一种引用方式是原本的对象就是常量，引用也是常量，都不可以改变</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const int ci = 1024;</span><br><span class="line">const int &amp;ri = ci;</span><br><span class="line">cout&lt;&lt; ri&lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<p>但是原本的对象可以不适常量， 引用可以是常量也可以不是，但是引用和原本对象之间的绑定关系不可以改变，原本对象可以改变。如下图所解释的。</p>
+<p><img src="/uploads/14883392364050.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int ci = 1024;</span><br><span class="line">const int &amp;ri = ci;</span><br><span class="line">ci = 1111;</span><br><span class="line">cout&lt;&lt; ri&lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<p>这中间的机制是，原本ci进行了自动转化为const int类型。</p>
+<h1 id="顶层const与底层const"><a href="#顶层const与底层const" class="headerlink" title="顶层const与底层const"></a>顶层const与底层const</h1><p><img src="/uploads/14887833321005.jpg"></p>
+<p><img src="/uploads/14887833419019.jpg"></p>
+<h1 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a>constexpr</h1><p>constexpr 类型定义一个编译器来验证变凉的值是否是一个常量表达式，关键是在编译期检查。<br>constexpr 可以定义变量和函数。<br>constexpr定义的指针是顶层const。</p>
+<h1 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/02/28/cpp-2-4/" data-id="ckvuqorfi000bi8q56kjsen9o" data-title="const" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/06/cpp-2-5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          typedef
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/27/cpp-2-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">复合类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/http/">http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/UrlEncode/" rel="tag">UrlEncode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arkit/" rel="tag">arkit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang-note/" rel="tag">golang note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sicp/" rel="tag">sicp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8-unicode/" rel="tag">utf-8 unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/UrlEncode/" style="font-size: 10px;">UrlEncode</a> <a href="/tags/arkit/" style="font-size: 10px;">arkit</a> <a href="/tags/c/" style="font-size: 15px;">c++</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/cpp/" style="font-size: 20px;">cpp</a> <a href="/tags/golang-note/" style="font-size: 10px;">golang note</a> <a href="/tags/sicp/" style="font-size: 10px;">sicp</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/utf-8-unicode/" style="font-size: 10px;">utf-8 unicode</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/work/" style="font-size: 10px;">work</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/27/go-note/">go_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/arkit-note/">arkit_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/04/sicp-note/">sicp_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/03/render/">render</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/22/vim-note/">vim_note</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

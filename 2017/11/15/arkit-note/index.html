@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>arkit_note | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ARKit 总结ARkit对现实世界的理解TrueDepth Camera (iPhone x前置)iPhone X 和 ARKit 可以实时对面部进行检测, 检测到结构化的表达方式.利用这些特性可以将面部的表情映射到3D的模型上. Camera &amp;&amp; Core Motion (VIO)ARKit 可以使用摄像头, 动作感应数据来检测到周围的环境. 比如现在的位置,朝向高度等. 场">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arkit_note">
+<meta property="og:url" content="http://example.com/2017/11/15/arkit-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ARKit 总结ARkit对现实世界的理解TrueDepth Camera (iPhone x前置)iPhone X 和 ARKit 可以实时对面部进行检测, 检测到结构化的表达方式.利用这些特性可以将面部的表情映射到3D的模型上. Camera &amp;&amp; Core Motion (VIO)ARKit 可以使用摄像头, 动作感应数据来检测到周围的环境. 比如现在的位置,朝向高度等. 场">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/uploads/15111728620339.jpg">
+<meta property="og:image" content="http://example.com/uploads/15111738618236.jpg">
+<meta property="article:published_time" content="2017-11-15T08:34:40.000Z">
+<meta property="article:modified_time" content="2021-11-11T09:02:04.810Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="arkit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/uploads/15111728620339.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-arkit-note" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/11/15/arkit-note/" class="article-date">
+  <time class="dt-published" datetime="2017-11-15T08:34:40.000Z" itemprop="datePublished">2017-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      arkit_note
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ARKit-总结"><a href="#ARKit-总结" class="headerlink" title="ARKit 总结"></a>ARKit 总结</h1><h3 id="ARkit对现实世界的理解"><a href="#ARkit对现实世界的理解" class="headerlink" title="ARkit对现实世界的理解"></a>ARkit对现实世界的理解</h3><h5 id="TrueDepth-Camera-iPhone-x前置"><a href="#TrueDepth-Camera-iPhone-x前置" class="headerlink" title="TrueDepth Camera (iPhone x前置)"></a>TrueDepth Camera (iPhone x前置)</h5><p>iPhone X 和 ARKit 可以实时对面部进行检测, 检测到结构化的表达方式.利用这些特性可以将面部的表情映射到3D的模型上.</p>
+<h5 id="Camera-amp-amp-Core-Motion-VIO"><a href="#Camera-amp-amp-Core-Motion-VIO" class="headerlink" title="Camera &amp;&amp; Core Motion (VIO)"></a>Camera &amp;&amp; Core Motion (VIO)</h5><p>ARKit 可以使用摄像头, 动作感应数据来检测到周围的环境. 比如现在的位置,朝向高度等.</p>
+<h5 id="场景理解和光照计算"><a href="#场景理解和光照计算" class="headerlink" title="场景理解和光照计算"></a>场景理解和光照计算</h5><p>ARKit 首先可以分析出摄像机的画面中水平的平面, 其次可以感知到场景中光的总量来调整虚拟物体上的关照.</p>
+<h5 id="硬件支持和开发环境"><a href="#硬件支持和开发环境" class="headerlink" title="硬件支持和开发环境"></a>硬件支持和开发环境</h5><p>ARKit 现在只能运行在6s之后的iPhone和 2017年之后的iPad上. 操作系统要求是iOS11. 可以使用苹果的Metal,SceneKit 和 第三方的 Unity 或者Unreal 来开发AR应用.</p>
+<h3 id="iOS平台接口"><a href="#iOS平台接口" class="headerlink" title="iOS平台接口"></a>iOS平台接口</h3><p><img src="/uploads/15111728620339.jpg"></p>
+<h5 id="ARSession"><a href="#ARSession" class="headerlink" title="ARSession"></a>ARSession</h5><p>ARSession 管理着ARkit需要的大部分的功能. 包括动作传感器读取的数据, 相机中读取到的数据,以及根据这一系列数据的分析. 然后 ARSession分析得到的现实世界和虚拟世界融合.</p>
+<p>ARSession 被包含在ARSCNView和 ARSKView 中,  如果想创建一个AR的应用,可以使用前面的两个View, 或者创建一个View,在其中包含一个ARSession的对象.</p>
+<p><img src="/uploads/15111738618236.jpg"></p>
+<h5 id="ARConfiguration"><a href="#ARConfiguration" class="headerlink" title="ARConfiguration"></a>ARConfiguration</h5><p>ARConfiguration 是抽象类, 运行ARSession需要ARConfiguration的子类.<br>游戏中最最主要使用的是 ARWorldTrackingConfiguration类.<br>ARWorldTrackingConfiguration 后置相机, 同时追踪了手机的位置,旋转. 可以使用 plane detection 和 hit testing.</p>
+<p>AROrientationTrackingConfiguration 只提供了简单的AR功能, 使用了后置相机和手机的旋转.</p>
+<p>ARFaceTrackingConfiguration 使用前置相机 可以追踪用户的脸部数据. (仅限iPhone x)</p>
+<h5 id="ARFrame"><a href="#ARFrame" class="headerlink" title="ARFrame"></a>ARFrame</h5><p>ARSession会捕捉相机中的每一帧的画面,ARFrame同时存储了每一帧的画面,还有这一帧时相机的位置,光照情况,以及ARKit分析出的场景中的数据等.</p>
+<h5 id="ARAnchor"><a href="#ARAnchor" class="headerlink" title="ARAnchor"></a>ARAnchor</h5><p>ARAnchor 是在真实世界中的位置和旋转等信息,通过这个数据我们可以将物体放在AR的场景中.</p>
+<p>ARPlaneAnchor 代表AR分析出的平面信息.</p>
+<h5 id="ARCamera"><a href="#ARCamera" class="headerlink" title="ARCamera"></a>ARCamera</h5><p>包含了相机的信息, 相机在世界坐标中的transform(位置,旋转), 相机的状态, 相机的projectionMatrix viewMatrix等数据,可以使用在绘制虚拟的世界.</p>
+<h3 id="Unity-ARKit"><a href="#Unity-ARKit" class="headerlink" title="Unity ARKit"></a>Unity ARKit</h3><h5 id="相机的配置"><a href="#相机的配置" class="headerlink" title="相机的配置"></a>相机的配置</h5><p>ARCameraManager.cs<br>UnityARVideo.cs<br>UnityARCameraNearFar.cs</p>
+<h5 id="场景中的对象"><a href="#场景中的对象" class="headerlink" title="场景中的对象"></a>场景中的对象</h5><p>GeneratePlanes.cs<br>PointCloudParticleExample.cs</p>
+<h5 id="环境光的配置"><a href="#环境光的配置" class="headerlink" title="环境光的配置"></a>环境光的配置</h5><p>UnityARAmbient.cs</p>
+<p>shadowPlanePrefab</p>
+<p>unity中一个点位代表真实世界的1米</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/11/15/arkit-note/" data-id="ckvuqorfb0001i8q52szbgfrc" data-title="arkit_note" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arkit/" rel="tag">arkit</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/27/go-note/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          go_note
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/04/sicp-note/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">sicp_note</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/http/">http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/UrlEncode/" rel="tag">UrlEncode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arkit/" rel="tag">arkit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang-note/" rel="tag">golang note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sicp/" rel="tag">sicp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8-unicode/" rel="tag">utf-8 unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/UrlEncode/" style="font-size: 10px;">UrlEncode</a> <a href="/tags/arkit/" style="font-size: 10px;">arkit</a> <a href="/tags/c/" style="font-size: 15px;">c++</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/cpp/" style="font-size: 20px;">cpp</a> <a href="/tags/golang-note/" style="font-size: 10px;">golang note</a> <a href="/tags/sicp/" style="font-size: 10px;">sicp</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/utf-8-unicode/" style="font-size: 10px;">utf-8 unicode</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/work/" style="font-size: 10px;">work</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/27/go-note/">go_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/arkit-note/">arkit_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/04/sicp-note/">sicp_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/03/render/">render</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/22/vim-note/">vim_note</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

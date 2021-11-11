@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="c++ 的文件操作资料 http:&#x2F;&#x2F;www.cplusplus.com&#x2F;doc&#x2F;tutorial&#x2F;files&#x2F; 原来一直分不清c与c＋＋ 对文件的读写的不同，同时对c＋＋ 中文件读写也了解的不够详细，cplusplus 上的这篇文章详细易懂，写一下笔记。 文件操作类 ofstream: Stream class to write on files  ifstream: Stream class">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2016/09/03/cpp-file/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="c++ 的文件操作资料 http:&#x2F;&#x2F;www.cplusplus.com&#x2F;doc&#x2F;tutorial&#x2F;files&#x2F; 原来一直分不清c与c＋＋ 对文件的读写的不同，同时对c＋＋ 中文件读写也了解的不够详细，cplusplus 上的这篇文章详细易懂，写一下笔记。 文件操作类 ofstream: Stream class to write on files  ifstream: Stream class">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-09-03T15:16:02.000Z">
+<meta property="article:modified_time" content="2021-11-11T09:02:04.811Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="c++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-cpp-file" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/09/03/cpp-file/" class="article-date">
+  <time class="dt-published" datetime="2016-09-03T15:16:02.000Z" itemprop="datePublished">2016-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="c-的文件操作"><a href="#c-的文件操作" class="headerlink" title="c++ 的文件操作"></a>c++ 的文件操作</h2><p>资料 <a target="_blank" rel="noopener" href="http://www.cplusplus.com/doc/tutorial/files/">http://www.cplusplus.com/doc/tutorial/files/</a></p>
+<p>原来一直分不清c与c＋＋ 对文件的读写的不同，同时对c＋＋ 中文件读写也了解的不够详细，cplusplus 上的这篇文章详细易懂，写一下笔记。</p>
+<h3 id="文件操作类"><a href="#文件操作类" class="headerlink" title="文件操作类"></a>文件操作类</h3><ul>
+<li><p>ofstream: Stream class to write on files</p>
+</li>
+<li><p>ifstream: Stream class to read from files</p>
+</li>
+<li><p>fstream: Stream class to both read and write from/to files.</p>
+<p>  // basic file operations<br>  #include <iostream><br>  #include <fstream><br>  using namespace std;</p>
+<p>  int main () {</p>
+<pre><code>ofstream myfile;
+myfile.open (&quot;example.txt&quot;);
+myfile &lt;&lt; &quot;Writing this to a file.\n&quot;;
+myfile.close();
+return 0;
+</code></pre>
+<p>  }</p>
+</li>
+</ul>
+<h3 id="打开关闭文件"><a href="#打开关闭文件" class="headerlink" title="打开关闭文件"></a>打开关闭文件</h3><p>open(filename, mode)</p>
+<p>mode :</p>
+<ul>
+<li><p>ios::in    打开读取的文件</p>
+</li>
+<li><p>ios::out    打开写入的文件</p>
+</li>
+<li><p>ios::binary    以二进制的方式打开文件</p>
+</li>
+<li><p>ios::ate    设置初始的指针在文件的末尾，如果没有设置这个，初始的指针在文件的开头<br>ios::app    All 所有的写入操作都会添加在文件的末尾<br>ios::trunc 如果写入的文件已经存在且有内容，原来的内容会被删除写入新的内容。</p>
+<p>  ofstream myfile;<br>  myfile.open (“example.bin”, ios::out | ios::app | ios::binary);</p>
+</li>
+</ul>
+<p>默认情况下：<br>ofstream ios::out<br>ifstream ios::in<br>fstream ios::in | ios::out</p>
+<p>这三个类的构造函数跟open函数有异样的作用</p>
+<pre><code>ofstream myfile (&quot;example.bin&quot;, ios::out | ios::app | ios::binary);
+</code></pre>
+<p>可以使用is_open() 来检查文件是否成功的打开</p>
+<pre><code>if (myfile.is_open()) &#123; /* ok, proceed with output */ &#125;
+</code></pre>
+<p>关闭文件</p>
+<pre><code>myfile.close()
+</code></pre>
+<h3 id="文本文件"><a href="#文本文件" class="headerlink" title="文本文件"></a>文本文件</h3><pre><code>// writing on a text file
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main () &#123;
+  ofstream myfile (&quot;example.txt&quot;);
+  if (myfile.is_open())
+  &#123;
+    myfile &lt;&lt; &quot;This is a line.\n&quot;;
+    myfile &lt;&lt; &quot;This is another line.\n&quot;;
+    myfile.close();
+  &#125;
+  else cout &lt;&lt; &quot;Unable to open file&quot;;
+  return 0;
+&#125;
+
+// reading a text file
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main () &#123;
+  string line;
+  ifstream myfile (&quot;example.txt&quot;);
+  if (myfile.is_open())
+  &#123;
+    while ( getline (myfile,line) )
+    &#123;
+      cout &lt;&lt; line &lt;&lt; &#39;\n&#39;;
+    &#125;
+    myfile.close();
+  &#125;
+
+  else cout &lt;&lt; &quot;Unable to open file&quot;; 
+
+  return 0;
+&#125;
+</code></pre>
+<h3 id="检查状态"><a href="#检查状态" class="headerlink" title="检查状态"></a>检查状态</h3><ul>
+<li>bad()<br>Returns true if a reading or writing operation fails. For example, in the case that we try to write to a file that is not open for writing or if the device where we try to write has no space left.</li>
+<li>fail()<br>Returns true in the same cases as bad(), but also in the case that a format error happens, like when an alphabetical character is extracted when we are trying to read an integer number.</li>
+<li>eof()<br>Returns true if a file open for reading has reached the end.</li>
+<li>good()<br>It is the most generic state flag: it returns false in the same cases in which calling any of the previous functions would return true. Note that good and bad are not exact opposites (good checks more state flags at once).</li>
+</ul>
+<h3 id="读取写入的位置"><a href="#读取写入的位置" class="headerlink" title="读取写入的位置"></a>读取写入的位置</h3><p>tellg() 和 tellp() 函数 返回值是 streampos类型的</p>
+<p>seekg() 和 seekp()</p>
+<p>seekg ( position );<br>seekp ( position );</p>
+<p>seekg ( offset, direction );<br>seekp ( offset, direction );</p>
+<ul>
+<li><p>ios::beg    offset counted from the beginning of the stream</p>
+</li>
+<li><p>ios::cur    offset counted from the current position</p>
+</li>
+<li><p>ios::end    offset counted from the end of the stream</p>
+<p>  // obtaining file size<br>  #include <iostream><br>  #include <fstream><br>  using namespace std;</p>
+<p>  int main () {</p>
+<pre><code>streampos begin,end;
+ifstream myfile (&quot;example.bin&quot;, ios::binary);
+begin = myfile.tellg();
+myfile.seekg (0, ios::end);
+end = myfile.tellg();
+myfile.close();
+cout &lt;&lt; &quot;size is: &quot; &lt;&lt; (end-begin) &lt;&lt; &quot; bytes.\n&quot;;
+return 0;
+</code></pre>
+<p>  }</p>
+</li>
+</ul>
+<h3 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h3><pre><code>// reading an entire binary file
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main () &#123;
+  streampos size;
+  char * memblock;
+
+  ifstream file (&quot;example.bin&quot;, ios::in|ios::binary|ios::ate);
+  if (file.is_open())
+  &#123;
+    size = file.tellg();
+    memblock = new char [size];
+    file.seekg (0, ios::beg);
+    file.read (memblock, size);
+    file.close();
+
+    cout &lt;&lt; &quot;the entire file content is in memory&quot;;
+
+    delete[] memblock;
+  &#125;
+  else cout &lt;&lt; &quot;Unable to open file&quot;;
+  return 0;
+&#125;
+</code></pre>
+<h3 id="buffer和同步"><a href="#buffer和同步" class="headerlink" title="buffer和同步"></a>buffer和同步</h3><p>在写入操作时是先写入了一块固定大小的buffer中，当文件关闭或者buffer满了就会写入文件，也可以调用sync() 将buffer写入文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2016/09/03/cpp-file/" data-id="ckvuqorfl000pi8q570idff0z" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/19/cpp-duotai/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          cpp_duotai
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/12/cmake-des/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cmake_des</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/http/">http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/UrlEncode/" rel="tag">UrlEncode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arkit/" rel="tag">arkit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang-note/" rel="tag">golang note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sicp/" rel="tag">sicp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8-unicode/" rel="tag">utf-8 unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/UrlEncode/" style="font-size: 10px;">UrlEncode</a> <a href="/tags/arkit/" style="font-size: 10px;">arkit</a> <a href="/tags/c/" style="font-size: 15px;">c++</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/cpp/" style="font-size: 20px;">cpp</a> <a href="/tags/golang-note/" style="font-size: 10px;">golang note</a> <a href="/tags/sicp/" style="font-size: 10px;">sicp</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/utf-8-unicode/" style="font-size: 10px;">utf-8 unicode</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/work/" style="font-size: 10px;">work</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/27/go-note/">go_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/arkit-note/">arkit_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/04/sicp-note/">sicp_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/03/render/">render</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/22/vim-note/">vim_note</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
