@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>android使用ant打包 | imagine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="android使用ant打包android 现在全方面都使用AndroidStudio，脚本打包也全面转向了使用 gradle， 官方的文档也全部都是gradle的。而现在的android游戏项目还是在使用eclipse，各种渠道，插件同样是eclipse的插件。所以记录下ant来打包android工程的方式。 android环境需要把 android命令，加入到环境变量中。运行下面命令，查看下现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android使用ant打包">
+<meta property="og:url" content="http://example.com/2015/09/12/andriod-ant-package/index.html">
+<meta property="og:site_name" content="imagine">
+<meta property="og:description" content="android使用ant打包android 现在全方面都使用AndroidStudio，脚本打包也全面转向了使用 gradle， 官方的文档也全部都是gradle的。而现在的android游戏项目还是在使用eclipse，各种渠道，插件同样是eclipse的插件。所以记录下ant来打包android工程的方式。 android环境需要把 android命令，加入到环境变量中。运行下面命令，查看下现">
+<meta property="og:locale">
+<meta property="article:published_time" content="2015-09-12T15:07:40.000Z">
+<meta property="article:modified_time" content="2021-11-12T03:28:03.102Z">
+<meta property="article:author" content="imagine243">
+<meta property="article:tag" content="ant">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="imagine" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">imagine</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">you not genius ,so become genius.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-andriod-ant-package" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/12/andriod-ant-package/" class="article-date">
+  <time class="dt-published" datetime="2015-09-12T15:07:40.000Z" itemprop="datePublished">2015-09-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      android使用ant打包
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="android使用ant打包"><a href="#android使用ant打包" class="headerlink" title="android使用ant打包"></a>android使用ant打包</h3><p>android 现在全方面都使用AndroidStudio，脚本打包也全面转向了使用 gradle， 官方的文档也全部都是gradle的。而现在的android游戏项目还是在使用eclipse，各种渠道，插件同样是eclipse的插件。所以记录下ant来打包android工程的方式。</p>
+<h3 id="android环境"><a href="#android环境" class="headerlink" title="android环境"></a>android环境</h3><p>需要把 android命令，加入到环境变量中。<br>运行下面命令，查看下现在现在电脑上使用的androidsdk的版本。</p>
+<blockquote>
+<p>android list targets </p>
+</blockquote>
+<h3 id="生成ant打包脚本。"><a href="#生成ant打包脚本。" class="headerlink" title="生成ant打包脚本。"></a>生成ant打包脚本。</h3><p>进入android的工程目录<br>运行下面命令，生成ant打包脚本build.xml, num是刚刚获得的androidsdk版本。</p>
+<blockquote>
+<p>android update project –path . –target num </p>
+</blockquote>
+<h3 id="ant-打包"><a href="#ant-打包" class="headerlink" title="ant 打包"></a>ant 打包</h3><p>在android工程目录运行 ant，默认是help target<br>清理android工程</p>
+<blockquote>
+<p>ant clean</p>
+</blockquote>
+<p>打包android工程</p>
+<blockquote>
+<p>ant package </p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2015/09/12/andriod-ant-package/" data-id="ckvvtlh260000yoq5dlzf960d" data-title="android使用ant打包" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ant/" rel="tag">ant</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/19/mac-at-commond/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          在mac终端中使用at命令
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/http/">http</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/objective-c/">objective-c</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lua/" rel="tag">Lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UrlEncode/" rel="tag">UrlEncode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ant/" rel="tag">ant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arkit/" rel="tag">arkit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/at%E5%91%BD%E4%BB%A4/" rel="tag">at命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang-note/" rel="tag">golang note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/objective-c/" rel="tag">objective-c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sicp/" rel="tag">sicp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/" rel="tag">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8-unicode/" rel="tag">utf-8 unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E7%90%86%E8%A7%A3/" rel="tag">矩阵理解</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/UrlEncode/" style="font-size: 10px;">UrlEncode</a> <a href="/tags/ant/" style="font-size: 10px;">ant</a> <a href="/tags/arkit/" style="font-size: 10px;">arkit</a> <a href="/tags/at%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">at命令</a> <a href="/tags/c/" style="font-size: 15px;">c++</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/cpp/" style="font-size: 20px;">cpp</a> <a href="/tags/golang-note/" style="font-size: 10px;">golang note</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/objective-c/" style="font-size: 10px;">objective-c</a> <a href="/tags/sicp/" style="font-size: 10px;">sicp</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/utf-8-unicode/" style="font-size: 10px;">utf-8 unicode</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/work/" style="font-size: 10px;">work</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E7%90%86%E8%A7%A3/" style="font-size: 10px;">矩阵理解</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/11/%E6%89%BE%E5%9B%9E%E5%9B%9B%E5%B9%B4%E5%89%8D%E7%9A%84%E5%8D%9A%E5%AE%A2/">找回四年前的博客</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/27/go-note/">go_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/arkit-note/">arkit_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/04/sicp-note/">sicp_note</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/03/render/">render</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 imagine243<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
